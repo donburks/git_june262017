@@ -1,0 +1,153 @@
+➜  jun262017 cd w1d1 
+➜  w1d1 ls
+index.html
+➜  w1d1 git init
+Initialized empty Git repository in /Users/don/dev/lighthouse/cohorts/jun262017/w1d1/.git/
+➜  w1d1 git:(master) ✗ ls -al 
+total 8
+drwxr-xr-x   4 don  staff  136 26 Jun 15:51 .
+drwxr-xr-x   3 don  staff  102 26 Jun 15:50 ..
+drwxr-xr-x  10 don  staff  340 26 Jun 15:51 .git
+-rw-r--r--@  1 don  staff  596 26 Jun 15:50 index.html
+➜  w1d1 git:(master) ✗ ls
+index.html
+➜  w1d1 git:(master) ✗ rm -rf .git 
+➜  w1d1 ls -al
+total 8
+drwxr-xr-x  3 don  staff  102 26 Jun 15:53 .
+drwxr-xr-x  3 don  staff  102 26 Jun 15:50 ..
+-rw-r--r--@ 1 don  staff  596 26 Jun 15:50 index.html
+➜  w1d1 git init
+Initialized empty Git repository in /Users/don/dev/lighthouse/cohorts/jun262017/w1d1/.git/
+➜  w1d1 git:(master) ✗ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  w1d1 git:(master) ✗ git add index.html 
+➜  w1d1 git:(master) ✗ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+  new file:   index.html
+
+➜  w1d1 git:(master) ✗ git commit -m "Created index.html file"
+[master (root-commit) f1b5b32] Created index.html file
+ 1 file changed, 26 insertions(+)
+ create mode 100644 index.html
+➜  w1d1 git:(master) git log
+➜  w1d1 git:(master) git status
+On branch master
+nothing to commit, working tree clean
+➜  w1d1 git:(master) git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+➜  w1d1 git:(master) ✗ git commit -am "Added more content for demo purposes"
+[master a386f4c] Added more content for demo purposes
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+➜  w1d1 git:(master) git status
+On branch master
+nothing to commit, working tree clean
+➜  w1d1 git:(master) git branch feature/morecontent
+➜  w1d1 git:(master) git branch
+  feature/morecontent
+* master
+➜  w1d1 git:(master) git checkout feature/morecontent 
+Switched to branch 'feature/morecontent'
+➜  w1d1 git:(feature/morecontent) git status
+On branch feature/morecontent
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+➜  w1d1 git:(feature/morecontent) ✗ git commit -am "Added more content for the branch"
+[feature/morecontent 98f456a] Added more content for the branch
+ 1 file changed, 3 insertions(+)
+➜  w1d1 git:(feature/morecontent) git checkout master
+Switched to branch 'master'
+➜  w1d1 git:(master) git checkout feature/morecontent 
+Switched to branch 'feature/morecontent'
+➜  w1d1 git:(feature/morecontent) git checkout master
+Switched to branch 'master'
+➜  w1d1 git:(master) git merge feature/morecontent 
+Updating a386f4c..98f456a
+Fast-forward
+ index.html | 3 +++
+ 1 file changed, 3 insertions(+)
+➜  w1d1 git:(master) git remote add origin git@github.com:donburks/git_june262017.git
+➜  w1d1 git:(master) git push -u origin master
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 1.05 KiB | 0 bytes/s, done.
+Total 9 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To github.com:donburks/git_june262017.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+➜  w1d1 git:(master) git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:donburks/git_june262017
+ * branch            master     -> FETCH_HEAD
+   98f456a..bc942ed  master     -> origin/master
+Updating 98f456a..bc942ed
+Fast-forward
+ index.html | 1 +
+ 1 file changed, 1 insertion(+)
+➜  w1d1 git:(master) git commit -am "Updated content to properly document joke-telling"
+[master 844eae1] Updated content to properly document joke-telling
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+➜  w1d1 git:(master) git push origin master
+To github.com:donburks/git_june262017.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:donburks/git_june262017.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+➜  w1d1 git:(master) git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:donburks/git_june262017
+ * branch            master     -> FETCH_HEAD
+   bc942ed..dff6052  master     -> origin/master
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+➜  w1d1 git:(master) ✗ git add index.html 
+➜  w1d1 git:(master) git commit -m "Resolved discussion over joke-telling"
+[master d67224b] Resolved discussion over joke-telling
+➜  w1d1 git:(master) git push origin master
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 506 bytes | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:donburks/git_june262017.git
+   dff6052..d67224b  master -> master
