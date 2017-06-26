@@ -1,0 +1,23 @@
+git init
+git status
+git add
+git commit 
+git log
+git branch
+git checkout
+git merge
+git remote
+git push
+git pull
+
+
+mkdir project
+git init
+git remote add origin <someURI>
+<make some files>
+git checkout -b mybranch
+<code>
+git commit
+git checkout master
+git merge mybranch
+git push origin master
